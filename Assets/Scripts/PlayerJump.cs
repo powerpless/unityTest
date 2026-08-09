@@ -6,7 +6,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float jumpPower = 5f;
 
     private Rigidbody rb;
-    private bool isGrounded = true;
+    private bool isGrounded2 = true;
 
     private void Awake()
     {
@@ -15,10 +15,10 @@ public class PlayerJump : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded2)
         {
             rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
-            isGrounded = false;
+            isGrounded2 = false;
         }
     }
 
@@ -26,7 +26,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            isGrounded2 = true;
         }
     }
 }
